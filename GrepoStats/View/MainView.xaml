@@ -1,0 +1,29 @@
+﻿<Window x:Class="GrepoStats.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:GrepoStats.View"
+        Title="MainWindow"
+        Width="525"
+        Height="350"
+        DataContext="{Binding Source={StaticResource Locator},
+                              Path=MainViewModel}">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Players">
+                <view:PlayerView />
+            </TabItem>
+
+            <TabItem Header="Alliances">
+                <view:AllianceView />
+            </TabItem>
+
+            <TabItem Header="Towns">
+                <view:TownView />
+            </TabItem>
+
+            <TabItem Header="Islands">
+                <view:IslandView />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

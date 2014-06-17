@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="GrepoStats.View.PlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:util="clr-namespace:GrepoStats.Utils.Wpf.Util"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=PlayerViewModel}"
+             mc:Ignorable="d">
+    <Grid>
+        <!--  <xcdg:DataGridControl ItemsSource="{Binding PlayersList}" />  -->
+
+        <ListView IsSynchronizedWithCurrentItem="True"
+                  ItemsSource="{Binding PlayersList}"
+                  util:GridViewSort.AutoSort="True">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}"
+                                    Header="ID"
+                                    util:GridViewSort.PropertyName="Id" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                    Header="Name"
+                                    util:GridViewSort.PropertyName="Name" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding AllianceId}"
+                                    Header="Alliance ID"
+                                    util:GridViewSort.PropertyName="AllianceId" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Points}"
+                                    Header="Points"
+                                    util:GridViewSort.PropertyName="Points" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Rank}"
+                                    Header="Rank"
+                                    util:GridViewSort.PropertyName="Rank" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Towns}"
+                                    Header="Towns"
+                                    util:GridViewSort.PropertyName="Towns" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>
