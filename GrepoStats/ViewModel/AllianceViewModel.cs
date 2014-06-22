@@ -14,9 +14,9 @@ namespace GrepoStats.ViewModel
     {
         #region Constantes
 
-        private const string RemoteFilePath = @"http://fr74.grepolis.com/data/alliances.txt.gz";
-        private const string LocalFilePath = @"C:\Grepolis\alliances.txt.gz";
-        private const string ExtractedFileName = @"C:\Grepolis\alliances.txt";
+        private const string REMOTE_FILE_PATH = @"http://fr74.grepolis.com/data/alliances.txt.gz";
+        private const string LOCAL_FILE_PATH = @"C:\Grepolis\alliances.txt.gz";
+        private const string EXTRACTED_FILE_NAME = @"C:\Grepolis\alliances.txt";
 
         #endregion
 
@@ -62,7 +62,7 @@ namespace GrepoStats.ViewModel
             else
             {
                 AlliancesList = new ObservableCollection<Alliance>();
-                DownloadFileAsync(RemoteFilePath);
+                DownloadFileAsync(REMOTE_FILE_PATH);
             }
         }
 
@@ -116,7 +116,7 @@ namespace GrepoStats.ViewModel
 
             client.DownloadProgressChanged += ClientOnDownloadProgressChanged;
             client.DownloadFileCompleted += ClientOnDownloadFileCompleted;
-            client.DownloadFileAsync(new Uri(file), LocalFilePath);
+            client.DownloadFileAsync(new Uri(file), LOCAL_FILE_PATH);
         }
 
         private void ClientOnDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs eventArgs)
@@ -128,7 +128,7 @@ namespace GrepoStats.ViewModel
         {
             Debug.WriteLine("Downloading file completed");
 
-            UnzipFile(LocalFilePath);
+            UnzipFile(LOCAL_FILE_PATH);
         }
 
         private void UnzipFile(string file)
@@ -137,7 +137,7 @@ namespace GrepoStats.ViewModel
             {
                 using (var gzipStream = new GZipStream(fileInputStream, CompressionMode.Decompress))
                 {
-                    using (var fileOutpuStream = new FileStream(ExtractedFileName, FileMode.Create, FileAccess.Write))
+                    using (var fileOutpuStream = new FileStream(EXTRACTED_FILE_NAME, FileMode.Create, FileAccess.Write))
                     {
                         var tempBytes = new byte[4096];
                         int i;
@@ -151,7 +151,7 @@ namespace GrepoStats.ViewModel
 
             Debug.WriteLine("Unzipping file completed");
 
-            ReadFile(ExtractedFileName);
+            ReadFile(EXTRACTED_FILE_NAME);
         }
 
         private void ReadFile(string file)
@@ -193,6 +193,19 @@ namespace GrepoStats.ViewModel
             }*/
 
             Debug.WriteLine("Reading file completed");
+        }
+
+        #endregion
+
+        #region CleanUp
+
+        /// <summary>
+        ///     Unregisters this instance from the Messenger class.
+        ///     To cleanup additional resources, override this method, clean up and then call base.Cleanup()
+        /// </summary>
+        public override void Cleanup()
+        {
+            base.Cleanup();
         }
 
         #endregion

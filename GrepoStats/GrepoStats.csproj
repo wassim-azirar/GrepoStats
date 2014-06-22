@@ -44,6 +44,7 @@
       <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
@@ -58,11 +59,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\CollectionHelper.cs" />
     <Compile Include="Model\Alliance.cs" />
     <Compile Include="Model\Island.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Town.cs" />
-    <Compile Include="Utils\GridViewSort.cs" />
+    <Compile Include="Helper\AppSettingsHelper.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\DefaultDataLoader.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\GridViewHelper.cs" />
     <Compile Include="ViewModel\AllianceViewModel.cs" />
     <Compile Include="ViewModel\IslandViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

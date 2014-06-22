@@ -4,41 +4,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
-             xmlns:util="clr-namespace:GrepoStats.Utils.Wpf.Util"
+             xmlns:util="clr-namespace:GrepoStats.Utils"
+             xmlns:helper="clr-namespace:GrepoStats.Helper"
              DataContext="{Binding Source={StaticResource Locator},
-                                   Path=PlayerViewModel}"
+                                     Path=PlayerViewModel}"
              mc:Ignorable="d">
     <Grid>
         <!--  <xcdg:DataGridControl ItemsSource="{Binding PlayersList}" />  -->
 
         <ListView IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding PlayersList}"
-                  util:GridViewSort.AutoSort="True">
+                  helper:GridViewHelper.AutoSort="True">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Id}"
                                     Header="ID"
-                                    util:GridViewSort.PropertyName="Id" />
+                                    helper:GridViewHelper.PropertyName="Id" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Name}"
                                     Header="Name"
-                                    util:GridViewSort.PropertyName="Name" />
+                                    helper:GridViewHelper.PropertyName="Name" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding AllianceId}"
                                     Header="Alliance ID"
-                                    util:GridViewSort.PropertyName="AllianceId" />
+                                    helper:GridViewHelper.PropertyName="AllianceId" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Points}"
                                     Header="Points"
-                                    util:GridViewSort.PropertyName="Points" />
+                                    helper:GridViewHelper.PropertyName="Points" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Rank}"
                                     Header="Rank"
-                                    util:GridViewSort.PropertyName="Rank" />
+                                    helper:GridViewHelper.PropertyName="Rank" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Towns}"
                                     Header="Towns"
-                                    util:GridViewSort.PropertyName="Towns" />
+                                    helper:GridViewHelper.PropertyName="Towns" />
                 </GridView>
             </ListView.View>
         </ListView>

@@ -3,45 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:util="clr-namespace:GrepoStats.Utils.Wpf.Util"
+             xmlns:util="clr-namespace:GrepoStats.Utils"
+             xmlns:helper="clr-namespace:GrepoStats.Helper"
              DataContext="{Binding Source={StaticResource Locator},
-                                   Path=TownViewModel}"
+                                     Path=TownViewModel}"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
     <Grid>
         <ListView IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding TownsList}"
-                  util:GridViewSort.AutoSort="True">
+                  helper:GridViewHelper.AutoSort="True">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Id}"
                                     Header="ID"
-                                    util:GridViewSort.PropertyName="Id" />
+                                    helper:GridViewHelper.PropertyName="Id" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding PlayerId}"
                                     Header="Player ID"
-                                    util:GridViewSort.PropertyName="PlayerId" />
+                                    helper:GridViewHelper.PropertyName="PlayerId" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Name}"
                                     Header="Name"
-                                    util:GridViewSort.PropertyName="Name" />
+                                    helper:GridViewHelper.PropertyName="Name" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding IslandX}"
                                     Header="Island X"
-                                    util:GridViewSort.PropertyName="IslandX" />
+                                    helper:GridViewHelper.PropertyName="IslandX" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding IslandY}"
                                     Header="Island Y"
-                                    util:GridViewSort.PropertyName="IslandY" />
+                                    helper:GridViewHelper.PropertyName="IslandY" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding NumberOnIsland}"
                                     Header="Number on island"
-                                    util:GridViewSort.PropertyName="NumberOnIsland" />
+                                    helper:GridViewHelper.PropertyName="NumberOnIsland" />
 
                     <GridViewColumn DisplayMemberBinding="{Binding Points}"
                                     Header="Points"
-                                    util:GridViewSort.PropertyName="Points" />
+                                    helper:GridViewHelper.PropertyName="Points" />
                 </GridView>
             </ListView.View>
         </ListView>
